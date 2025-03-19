@@ -21,6 +21,6 @@ The website's source code is released under the [MIT Licence](https://opensource
 
 The academic content (reports, theses, and research papers in pdfs/) is protected under the [Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International License (CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/).
 
-## Contact 📞
+## Contact 🌐
 
 For further enquiries, please refer to the academic profile of [Prof. Bing Xu](https://www.hw.ac.uk/ebs/people/faculty/bing-xu.htm).

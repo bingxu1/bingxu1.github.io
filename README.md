@@ -6,7 +6,7 @@ This repository hosts the website for **Academic Archives**, an online platform 
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/bingxu1.github.io.git
+   git clone https://github.com/bingxu1/bingxu1.github.io
    ```
 2. **Add or update PDF files** in the `pdfs/` folder.
 3. **Modify `index.html`** as needed to embed new publications.

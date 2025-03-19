@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prof Bing's Academic Archives</title>
+  <title>Prof. Xu's Academic Archives</title>
   <style>
     /* Reset */
     * {
@@ -16,15 +16,32 @@
       background-color: #f4f4f4;
       color: #333;
       line-height: 1.6;
-      padding: 20px;
+      padding: 0;
     }
     header {
       background-color: #003366;
       color: #fff;
       padding: 20px;
       text-align: center;
-      border-radius: 8px;
+      border-radius: 0;
       margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      position: relative;
+    }
+    .logo {
+      position: absolute;
+      left: 20px;
+    }
+    .logo img {
+      height: 70px;
+      width: auto;
+      filter: invert(1);
+    }
+    .logo a {
+      display: block;
     }
     header h1 {
       font-size: 2.5em;
@@ -33,12 +50,19 @@
     header p {
       font-size: 1.2em;
     }
+    header p a {
+      color: inherit;
+      text-decoration: none;
+      font-weight: inherit;
+    }
     main {
       background-color: #fff;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       margin-bottom: 20px;
+      max-width: 900px;
+      margin: auto;
     }
     .publication {
       margin-bottom: 20px;
@@ -50,21 +74,34 @@
       padding-bottom: 5px;
       cursor: pointer;
       color: #003366;
+      transition: color 0.3s ease;
     }
     .publication h2:hover {
       text-decoration: underline;
+      color: #0056b3;
     }
-    .publication iframe {
+    .pdf-container {
+      width: 100%;
+      max-width: 100%;
+      height: 0;
+      overflow: hidden;
+      transition: height 0.5s ease-out, opacity 0.3s ease-in-out;
+      opacity: 0;
+    }
+    .pdf-container iframe {
       width: 100%;
       height: 600px;
       border: none;
-      display: none; /* Initially hidden */
-      margin-top: 10px;
+    }
+    .pdf-container.show {
+      height: 600px;
+      opacity: 1;
     }
     footer {
       text-align: center;
       font-size: 0.9em;
       color: #666;
+      padding-top: 10px;
     }
     footer a {
       color: #003366;
@@ -74,36 +111,58 @@
     footer a:hover {
       text-decoration: underline;
     }
+    @media screen and (max-width: 768px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      .logo {
+        position: static;
+        margin-bottom: 10px;
+      }
+    }
   </style>
   <script>
     function togglePDF(id) {
-      let pdf = document.getElementById(id);
-      if (pdf.style.display === "none" || pdf.style.display === "") {
-        pdf.style.display = "block"; // Show PDF
-      } else {
-        pdf.style.display = "none"; // Hide PDF
-      }
+      let pdfContainer = document.getElementById(id);
+      pdfContainer.classList.toggle("show");
     }
   </script>
 </head>
 <body>
   <header>
-    <h1>Academic Archives</h1>
-    <p>Led by Prof. Bing Xu</p>
-  </header>
+    <div class="logo">
+      <a href="https://www.hw.ac.uk/ebs" target="_blank">
+        <img src="logo.svg" alt="EBS Logo">
+      </a>
+    </div>
+    <div>
+      <h1>Academic Archives</h1>
+      <p>Led by <a href="https://www.hw.ac.uk/ebs/people/faculty/bing-xu.htm" target="_blank">Prof. Bing Xu</a></p>
+    </div>
+  </header>  
   <main>
     <div class="publication">
-      <h2 onclick="togglePDF('pdf1')">Consumer Perceptions and Market Potential for Circular Economy Laundry Detergents: Insights from UK Focus Groups</h2>
-      <iframe id="pdf1" src="pdfs/CELaundry.pdf" title="Circular Economy Laundry Detergents Report"></iframe>
+      <h2 onclick="togglePDF('pdf1')">
+        Consumer Perceptions and Market Potential for Circular Economy Laundry Detergents
+      </h2>
+      <div id="pdf1" class="pdf-container">
+        <iframe src="pdfs/CELaundry.pdf" title="Circular Economy Laundry Detergents Report"></iframe>
+      </div>
     </div>
+
     <div class="publication">
-      <h2 onclick="togglePDF('pdf2')">System Dynamics Interface Technical Report</h2>
-      <iframe id="pdf2" src="pdfs/SDinterface.pdf" title="System Dynamics Interface Technical Report"></iframe>
+      <h2 onclick="togglePDF('pdf2')">
+        System Dynamics Interface Technical Report
+      </h2>
+      <div id="pdf2" class="pdf-container">
+        <iframe src="pdfs/SDinterface.pdf" title="System Dynamics Interface Technical Report"></iframe>
+      </div>
     </div>
   </main>
   <footer>
     <p>&copy; 2025 Prof. Bing Xu. All rights reserved. <br>
-    <a href="https://www.hw.ac.uk/ebs/people/faculty/bing-xu.htm" target="_blank">Prof. Bing Xu’s Official Profile</a></p>
+    <a href="https://www.hw.ac.uk/ebs/people/faculty/bing-xu.htm" target="_blank">Prof. Bing Xu's Official Profile</a></p>
   </footer>
 </body>
 </html>

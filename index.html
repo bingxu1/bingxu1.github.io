@@ -41,18 +41,24 @@
       margin-bottom: 20px;
     }
     .publication {
-      margin-bottom: 40px;
+      margin-bottom: 20px;
     }
     .publication h2 {
-      font-size: 1.8em;
+      font-size: 1.6em;
       margin-bottom: 10px;
       border-bottom: 2px solid #003366;
       padding-bottom: 5px;
+      cursor: pointer;
+      color: #003366;
+    }
+    .publication h2:hover {
+      text-decoration: underline;
     }
     .publication iframe {
       width: 100%;
       height: 600px;
       border: none;
+      display: none; /* Initially hidden */
       margin-top: 10px;
     }
     footer {
@@ -69,6 +75,16 @@
       text-decoration: underline;
     }
   </style>
+  <script>
+    function togglePDF(id) {
+      let pdf = document.getElementById(id);
+      if (pdf.style.display === "none" || pdf.style.display === "") {
+        pdf.style.display = "block"; // Show PDF
+      } else {
+        pdf.style.display = "none"; // Hide PDF
+      }
+    }
+  </script>
 </head>
 <body>
   <header>
@@ -77,12 +93,12 @@
   </header>
   <main>
     <div class="publication">
-      <h2>Consumer Perceptions and Market Potential for Circular Economy Laundry Detergents: Insights from UK Focus Groups</h2>
-      <iframe src="pdfs/CELaundry.pdf" title="Circular Economy Laundry Detergents Report"></iframe>
+      <h2 onclick="togglePDF('pdf1')">Consumer Perceptions and Market Potential for Circular Economy Laundry Detergents: Insights from UK Focus Groups</h2>
+      <iframe id="pdf1" src="pdfs/CELaundry.pdf" title="Circular Economy Laundry Detergents Report"></iframe>
     </div>
     <div class="publication">
-      <h2>System Dynamics Interface Technical Report</h2>
-      <iframe src="pdfs/SDinterface.pdf" title="System Dynamics Interface Technical Report"></iframe>
+      <h2 onclick="togglePDF('pdf2')">System Dynamics Interface Technical Report</h2>
+      <iframe id="pdf2" src="pdfs/SDinterface.pdf" title="System Dynamics Interface Technical Report"></iframe>
     </div>
   </main>
   <footer>

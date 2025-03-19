@@ -67,18 +67,34 @@
     .publication {
       margin-bottom: 20px;
     }
+    .publication-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+    }
     .publication h2 {
       font-size: 1.6em;
       margin-bottom: 10px;
       border-bottom: 2px solid #003366;
       padding-bottom: 5px;
-      cursor: pointer;
       color: #003366;
       transition: color 0.3s ease;
     }
     .publication h2:hover {
       text-decoration: underline;
       color: #0056b3;
+    }
+    .open-btn {
+      font-size: 1.4em;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: 10px;
+      transition: transform 0.2s ease;
+    }
+    .open-btn:hover {
+      transform: scale(1.2);
     }
     .pdf-container {
       width: 100%;
@@ -127,6 +143,10 @@
       let pdfContainer = document.getElementById(id);
       pdfContainer.classList.toggle("show");
     }
+
+    function openPDF(url) {
+      window.open(url, '_blank');
+    }
   </script>
 </head>
 <body>
@@ -143,18 +163,24 @@
   </header>  
   <main>
     <div class="publication">
-      <h2 onclick="togglePDF('pdf1')">
-        Consumer Perceptions and Market Potential for Circular Economy Laundry Detergents
-      </h2>
+      <div class="publication-header">
+        <h2 onclick="togglePDF('pdf1')">
+          Consumer Perceptions and Market Potential for Circular Economy Laundry Detergents
+        </h2>
+        <button class="open-btn" onclick="openPDF('pdfs/CELaundry.pdf')">📂</button>
+      </div>
       <div id="pdf1" class="pdf-container">
         <iframe src="pdfs/CELaundry.pdf" title="Circular Economy Laundry Detergents Report"></iframe>
       </div>
     </div>
 
     <div class="publication">
-      <h2 onclick="togglePDF('pdf2')">
-        System Dynamics Interface Technical Report
-      </h2>
+      <div class="publication-header">
+        <h2 onclick="togglePDF('pdf2')">
+          System Dynamics Interface Technical Report
+        </h2>
+        <button class="open-btn" onclick="openPDF('pdfs/SDinterface.pdf')">📂</button>
+      </div>
       <div id="pdf2" class="pdf-container">
         <iframe src="pdfs/SDinterface.pdf" title="System Dynamics Interface Technical Report"></iframe>
       </div>

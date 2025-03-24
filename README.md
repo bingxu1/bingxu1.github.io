@@ -19,7 +19,7 @@ This project is dual-licensed:
 
 The website's source code is released under the [MIT Licence](https://opensource.org/license/mit).
 
-The academic content (reports, theses, and research papers in pdfs/) is protected under the [Creative Commons Attribution-NonCommercial-NoDerivs 4.0 International License (CC BY-NC-ND 4.0)](https://creativecommons.org/licenses/by-nc-nd/4.0/).
+The academic content (reports, theses, and research papers in pdfs/) is protected under the [Creative Commons Attribution 4.0 International License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
 
 ## Contact 🌐
 
